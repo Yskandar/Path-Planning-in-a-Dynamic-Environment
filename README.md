@@ -42,17 +42,21 @@ Local path-planning refers to the task of computing a local path from one positi
 - To solve the global path-planning problem efficiently, **we use a QuadTree representation of the map** (see figure below). This allows us to reduce the number of states on which to perform the path search. 
 
 <figure>
-<img src="Figures/worldMap_original.png" width="660"/>
-<img src="Figures/worldMap_decomposed.png" width="660"/>
+<p align="center">
+<img src="Figures/worldMap_original.png" width="460"/>
+<img src="Figures/worldMap_decomposed.png" width="460"/>
 <figcaption align = "center"><b>Left : Original State Space, Right : Decomposed State Space</b></figcaption>
+</p>  
 </figure>
 
 - Once the Quadtree representation is built, we use Breadth First Search to find the shortest path from the current position to the goal state.
 
 <figure>
-<img src="Figures/worldMap_graph.png" width="660"/>
-<img src="Figures/worldMap_path.png" width="660"/>
+<p align="center">
+<img src="Figures/worldMap_graph.png" width="460"/>
+<img src="Figures/worldMap_path.png" width="460"/>
 <figcaption align = "center"><b>Left : Directed Graph (depth = 1), Right : Global Path using BFS</b></figcaption>
+</p> 
 </figure>
 
 The global path obtained using the QuadTree decomposition method allows for the avoidance of the large fixed obstacles and provides us with a general path to follow. 
@@ -61,8 +65,8 @@ For the local path-planning problem, we rely on the robot’s sensor, which give
 <figure>
 <p align="center">
   <img src="Figures/intermediate_env.png" width="400"/>
-</p>
 <figcaption align = "center"><b>Overview of the local environment</b></figcaption>
+</p>
 </figure>
 
 In this environment, we know the current position of the moving obstacles. However, we still do not know their dynamics and thus their position at the next time step. Thus, when we plan our path, we omit the states occupied by the moving obstacles **as well as the states adjacent to them**, to prevent any collisions.
@@ -74,8 +78,8 @@ Here's an example of our solution running. The green square represents the robot
 <figure>
 <p align="center">
   <img src="Simulations/animation3.gif" width="400"/>
-</p>
 <figcaption align = "center"><b>Example of application</b></figcaption>
+</p>
 </figure>
 
 If we let the simulqtion run completely, we can observe the resulting trajectory of the robot.
@@ -83,8 +87,8 @@ If we let the simulqtion run completely, we can observe the resulting trajectory
 <p align="center">
   <img src="Figures/before path.png" width="400"/>
   <img src="Figures/after path.png" width="400"/>
-</p>
 <figcaption align = "center"><b>Example of application</b></figcaption>
+</p>
 </figure>
 
 
@@ -94,8 +98,8 @@ After testing our system on different maps and gathering some data, we show that
 <figure>
 <p align="center">
   <img src="Figures/timeCost_dimension.png" width="700"/>
-</p>
 <figcaption align = "center"><b>Feasible Path Computation Time Across Different Map Dimensions</b></figcaption>
+</p>
 </figure>
 
 
