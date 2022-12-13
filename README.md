@@ -19,19 +19,19 @@ We are provided with a discrete space, discrete time environment in which we are
 - We assume that our robot is provided with a sensor that allows it to observe its surroundings, which we represent by a grid of 5 by 5 operational states centered on the robot (occupancy grid).
 
 # Mathematical Formulation
-State Space : $\mathcal{S} = \{(x,y)|x,y \in \mathbb{N}, 0 \le x \le Xdim, 0 \le y \le Ydim\} $, $Xdim, Ydim \in \mathbb{N}$, $S \subset \mathbb{N}^2$
+State Space : $\mathcal{S} = \set{(x,y)|x,y \in \mathbb{N}, 0 \le x \le Xdim, 0 \le y \le Ydim} $, $Xdim, Ydim \in \mathbb{N}$, $S \subset \mathbb{N}^2$
 
-Action Space : $\mathcal{A} = \{\text{(0,1), (0,-1), (-1,0), (1,0), (0,0)}\} $,  $A \subset \mathbb{Z}^2$
+Action Space : $\mathcal{A} = \set{\text{(0,1), (0,-1), (-1,0), (1,0), (0,0)}}$,  $A \subset \mathbb{Z}^2$
 
-Observation Space : $\mathcal{G} = [\![0, 1]\!]^{5\times5}$
+Observation Space : $\mathcal{G} = [[0, 1]]^{5\times5}$
 
 Fixed Obstacle Space : $\mathcal{O} \subset \mathcal{S}$
 
 Let $f : \mathcal{S} \times \mathcal{A} \rightarrow \mathcal{S}$ be the function describing the dynamics of our robot.
 
-Let $N \in \mathbb{N}$ be the number of iterations : Moving Obstacle Space at iteration $i \in [\![0, n-1]\!]$ : $\mathcal{M_i} \subset \mathcal{S}$
+Let $N \in \mathbb{N}$ be the number of iterations : Moving Obstacle Space at iteration $i \in [[0, n-1]]$ : $\mathcal{M_i} \subset \mathcal{S}$
 
-Task : Compute a sequence of states (trajectory) $T = \{\mathcal{S}_0, \mathcal{S}_1, ..., \mathcal{S}_{N-1}\}$ with $\mathcal{S}_0$ the initial state of the robot and $\mathcal{S}_{N-1}$ the goal state, such that $\forall$ i $\in [\![0, N-2]\!]$, $\exists  a \in \mathcal{A} \text{ such that } f(\mathcal{S}_{i}, a) = \mathcal{S}_{i+1} \text{ and } \mathcal{S}_i \notin M_i.$
+Task : Compute a sequence of states (trajectory) $\mathcal{T} = \set{S_0, S_1, ..., S_{N-1}}$ with $S_0$ the initial state of the robot and $S_{N-1}$ the goal state, such that $\forall$ i $\in [[0, N-2]]$, $\exists a \in \mathcal{A} \text{ such that } f(S_i, a) = S_{i+1} \text{ and } S_i \notin M_i.$
 
 # Our approach
 
